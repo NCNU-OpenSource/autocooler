@@ -1,4 +1,3 @@
-# autocooler
 我不要熱死	LSA-1071
 =====
 簡介
@@ -7,3 +6,50 @@
 
 使用材料
 ----
+<table>
+   <tr>
+     <th>材料名稱</th>
+     <th>數量</th>
+     <th>來源</th>
+  </tr>
+  <tr>
+    <td>麵包板</td>
+    <td>1</td>
+    <td>Moli借用</td>
+  </tr>
+  <tr>
+    <td>燈泡</td>
+    <td>3</td>
+    <td>Moli借用</td>
+  </tr>
+  <tr>
+    <td>蜂鳴器</td>
+    <td>1</td>
+    <td>Moli借用</td>
+  </tr>
+  <tr>
+    <td>繼電器</td>
+    <td>1</td>
+    <td>Moli借用</td>
+  </tr>
+  <tr>
+    <td>溫濕度感測器</td>
+    <td>1</td>
+    <td>Moli借用</td>
+  </tr>
+  <tr>
+    <td>Raspberrt Pi 3</td>
+    <td>1</td>
+    <td>課堂提供</td>
+  </tr>
+  <tr>
+    <td>綫</td>
+    <td>20</td>
+    <td>課堂提供</td>
+  </tr>
+  <tr>
+    <td>風扇</td>
+    <td>1</td>
+    <td>自備</td>
+  </tr>
+</table>
