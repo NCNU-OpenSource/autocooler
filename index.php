@@ -14,6 +14,11 @@
 </head>
 <body align="center">
 <div style="width:75%;margin:auto;">
+<form method="get" action="index.php">
+<input id="date" name="date" type="date" value="<?php $pdate=$_GET['date'];echo $pdate;?>" onchange="handler(event);">
+<input type="time" id="time" name="time" value="<?php $ptime=$_GET['time'];echo $ptime;?>">
+<input style="margin: 2px 10px;width: 100px; height: 24px; font-Size: 16px" type="submit" class="btn" name="button" value="確定"/>
+</form>
                 <center><canvas id="canvas"></canvas></center>
         </div>
 <script>
@@ -24,20 +29,48 @@
         $db = 'cooler';
         $conn = mysqli_connect($host, $user, $pass, $db) or die('Error with MySQL connection'); //跟MyMSQL連線並登入
         mysqli_query($conn,"SET NAMES utf8");
-        $sql="SELECT *, CONVERT(SUBSTRING_INDEX(timestamp,':',1),UNSIGNED INTEGER) AS num1,
+        if(!isset($ptime) || !isset($pdate)){
+		$sql="SELECT *, CONVERT(SUBSTRING_INDEX(timestamp,':',1),UNSIGNED INTEGER) AS num1,
         CONVERT(SUBSTRING_INDEX(timestamp,':',-1),UNSIGNED INTEGER) AS num2
         FROM `record`";
+		}
+		else{
+			$sql="SELECT *
+			FROM `record`
+			WHERE SUBSTRING_INDEX(timestamp,' ',1) like '{$pdate}'";
+		}
         $result = mysqli_query($conn,$sql)or die('Error with MySQL connection');
 
         $count=0;
         $num=0;
         while($row = mysqli_fetch_array($result)){
+			if(!isset($ptime) || !isset($pdate)){
                 $time[$count++]=$row[2];
                 if($num==0)
                         echo "var MONTHS = ['".$time[$num++];
                 else{
                         echo "','".$time[$num++];
+						if($count>=59){
+							break;
+						}
                 }
+			}
+			else{
+				if($row[2][11].$row[2][12] == $ptime[0].$ptime[1] && $row[2][14].$row[2][15] == $ptime[3].$ptime[4]){
+					$time[$count++]=$row[2];
+					if($num==0)
+						echo "var MONTHS = ['".$time[$num++];
+					else{
+						echo "','".$time[$num++];
+					}
+				}else if($num!=0){
+					$time[$count++]=$row[2];
+					echo "','".$time[$num++];
+					if($count>=59){
+						break;
+					}
+				}
+			}
         }
         echo "'];\n";
         $num=0;
@@ -78,7 +111,7 @@
                                 responsive: true,
                                 title: {
                                         display: true,
-                                        text: '溫度變化紀錄',
+                                        text: '一小時內溫度變化紀錄',
 										fontSize: 24
                                 },
                                 tooltips: {
