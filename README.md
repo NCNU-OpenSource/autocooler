@@ -25,7 +25,7 @@
 主要功能：在不一樣的溫度，風扇、蜂鳴器和燈泡的反應都不一樣
 
 ## 使用的現有軟體與來源
-Python,PHP,Mysql
+Python,PHP,Mysql,JS
 
 ## 分工
 主題發想：全員
@@ -42,3 +42,4 @@ Python,PHP,Mysql
 3. 蜂鳴器教學：https://github.com/gumslone/raspi_buzzer_player/blob/master/buzzer_player.py
 4. Readme 參考 https://github.com/NCNU-OpenSource/Bian-yuan-ren-candles 
 5. https://github.com/NCNU-OpenSource/NoBomBom
+6. https://www.chartjs.org/
