@@ -32,7 +32,7 @@
         if(!isset($ptime) || !isset($pdate)){
 		$sql="SELECT *, CONVERT(SUBSTRING_INDEX(timestamp,':',1),UNSIGNED INTEGER) AS num1,
         CONVERT(SUBSTRING_INDEX(timestamp,':',-1),UNSIGNED INTEGER) AS num2
-        FROM `record`";
+        FROM `record` order by id desc";
 		}
 		else{
 			$sql="SELECT *
