@@ -16,7 +16,7 @@
 | 風扇 | 1 | 自備 |
 
 ## 成品
-圖
+![](http://i.imgur.com/0hoBu0l.jpg)
 
 ## 電路圖
 ![](https://i.imgur.com/3y3dsdO.png)
